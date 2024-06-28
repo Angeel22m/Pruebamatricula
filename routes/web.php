@@ -7,3 +7,7 @@ Route::get('/', function () {
 });
 
 Route::get('/alumnos/mostrar', [AlumnosController::class, 'mostrarAlumnos']);
+
+Route::get('/alumnos/agregar',[AlumnosController::class, 'agregar'])->name('alumnos.agregar');
+
+Route::post('/alumnos/guardar',[AlumnosController::class, 'save'])->name('alumno.guardar');
