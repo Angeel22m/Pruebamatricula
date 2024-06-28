@@ -23,7 +23,23 @@ class AlumnosController extends Controller
         $nvAlumno->save();
 
         return redirect('alumnos/mostrar');
-    } }
+    } 
+
+    public function editar( $id){
+
+        $alumno = Alumno::find($id);
+      return view('editaralumno',compact('alumno'));
+    }
+   public function salvar(Request $request, $id){
+    $alumno = Alumno::find($id);
+    $alumno->nombre = $request->nombre;
+    $alumno->apellido = $request->apellido;
+    $alumno->telefono = $request->telefono;
+    $alumno->save();
+
+    return redirect('alumnos/mostrar');
+   }
+}
     
 
 
