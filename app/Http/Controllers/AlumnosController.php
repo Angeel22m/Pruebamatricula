@@ -39,6 +39,17 @@ class AlumnosController extends Controller
 
     return redirect('alumnos/mostrar');
    }
+   public function eliminar($id){
+    $alumno = Alumno::find($id);
+return view('alumnoeliminar', compact('alumno'));
+
+   }
+
+   public function EliminarSalvar($id){
+    $alumno = Alumno::find($id);
+    $alumno->delete();
+        return redirect(Route('alumno.mostrar'));
+   }
 }
     
 
